@@ -183,7 +183,7 @@ git config --global alias.wtl "worktree list"
 git config --global alias.rs '!f() { \
     if [ $# -eq 0 ]; then \
         git reset; \
-    elif [ -n "$1" ] && [ "$1" -eq "$1" ] 2>/dev/null; then \
+    elif [ -n $1 ] && [ $1 -eq $1 ] 2>/dev/null; then \
         git reset HEAD~$1; \
     else \
         git reset $1; \
@@ -197,7 +197,7 @@ git config --global alias.rs '!f() { \
 git config --global alias.rss '!f() { \
     if [ $# -eq 0 ]; then \
         echo "Usage: git rss <number>"; \
-    elif [ -n "$1" ] && [ "$1" -eq "$1" ] 2>/dev/null; then \
+    elif [ -n $1 ] && [ $1 -eq $1 ] 2>/dev/null; then \
         git reset --soft HEAD~$1; \
     else \
         git reset --soft $1; \
@@ -212,7 +212,7 @@ git config --global alias.rss '!f() { \
 git config --global alias.rsh '!f() { \
     if [ $# -eq 0 ]; then \
         git reset --hard; \
-    elif [ -n "$1" ] && [ "$1" -eq "$1" ] 2>/dev/null; then \
+    elif [ -n $1 ] && [ $1 -eq $1 ] 2>/dev/null; then \
         git reset --hard HEAD~$1; \
     else \
         git reset --hard $1; \
