@@ -11,6 +11,8 @@ git config --global alias.gconfig "config --global"
 # Status
 git config --global alias.s "status -sb"
 
+# Switch
+git config --global alias.sw "switch"
 
 # Checkout
 git config --global alias.co "checkout"
