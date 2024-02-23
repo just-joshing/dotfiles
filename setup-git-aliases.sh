@@ -183,6 +183,7 @@ git config --global alias.lg "log --pretty=format:%C(yellow)%h\\ %Creset%s\\ %Cg
 git config --global alias.wt "worktree"
 git config --global alias.wta "worktree add"
 git config --global alias.wtl "worktree list"
+git config --global alias.wtr "worktree remove"
 
 
 # RS - Reset (mixed)
