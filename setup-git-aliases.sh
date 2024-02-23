@@ -120,6 +120,10 @@ git config --global alias.rbm '!f() { \
     DEFAULT_BRANCH=`git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@"`; \
     git rebase origin/$DEFAULT_BRANCH; \
 }; f'
+git config --global alias.rbim '!f() { \
+    DEFAULT_BRANCH=`git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@"`; \
+    git rebase -i origin/$DEFAULT_BRANCH; \
+}; f'
 
 
 # Merge
@@ -154,6 +158,10 @@ git config --global alias.pr "pull --rebase"
 git config --global alias.prm '!f() { \
     DEFAULT_BRANCH=`git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@"`; \
     git pull --rebase origin $DEFAULT_BRANCH; \
+}; f'
+git config --global alias.prim '!f() { \
+    DEFAULT_BRANCH=`git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@"`; \
+    git pull --rebase=interactive origin $DEFAULT_BRANCH; \
 }; f'
 git config --global alias.pro "pull --rebase origin"
 git config --global alias.pru '!f() { \
