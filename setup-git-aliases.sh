@@ -73,6 +73,7 @@ git config --global alias.updatedefault "remote set-head origin -a"
 # Add
 git config --global alias.a "add"
 git config --global alias.aa "add -A"
+git config --global alias.ap "add -p"
 
 
 # Commit
