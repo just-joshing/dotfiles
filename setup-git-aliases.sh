@@ -11,8 +11,15 @@ git config --global alias.gconfig "config --global"
 # Status
 git config --global alias.s "status -sb"
 
+
 # Switch
 git config --global alias.sw "switch"
+git config --global alias.swc "switch -c"
+git config --global alias.swcm '!f() { \
+    DEFAULT_BRANCH=`git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@"`; \
+    git sw -c $1 origin/$DEFAULT_BRANCH; \
+}; f'
+
 
 # Checkout
 git config --global alias.co "checkout"
