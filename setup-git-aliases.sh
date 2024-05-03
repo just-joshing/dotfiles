@@ -14,8 +14,8 @@ git config --global alias.s "status -sb"
 
 # Switch
 git config --global alias.sw "switch"
-git config --global alias.swd "switch --detach"
 git config --global alias.swc "switch -c"
+git config --global alias.swd "switch --detach"
 git config --global alias.swm '!f() { \
     DEFAULT_BRANCH=`git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@"`; \
     git switch --detach origin/$DEFAULT_BRANCH; \
