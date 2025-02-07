@@ -7,3 +7,9 @@ git config --global core.editor "code --wait"
 git config --global push.default current
 
 ./setup-git-aliases.sh
+
+case "$GITHUB_REPOSITORY" in
+    "github/github")
+        ./setup-git-aliases-github-github.sh
+        ;;
+esac
