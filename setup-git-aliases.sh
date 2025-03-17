@@ -38,7 +38,7 @@ git config --global alias.cobm '!f() { \
     git checkout -b $1 origin/$DEFAULT_BRANCH; \
 }; f'
 git config --global alias.cobu '!f() { \
-    UPSTREAM=`git status -sb | cut -d \\. -f 4 | cut -d ' ' -f 1`; \
+    UPSTREAM=`git status -sb | cut -d \\. -f 4 | cut -d ' ' -f 1 | head -n 1`; \
     git checkout -b $1 $UPSTREAM; \
 }; f'
 git config --global alias.cobo '!f() { \
@@ -74,7 +74,7 @@ git config --global alias.fm '!f() { \
     git fetch origin $DEFAULT_BRANCH; \
 }; f'
 git config --global alias.fu '!f() { \
-    UPSTREAM=`git status -sb | cut -d \\. -f 4 | cut -d " " -f 1`; \
+    UPSTREAM=`git status -sb | cut -d \\. -f 4 | cut -d " " -f 1 | head -n 1`; \
     REMOTE=`echo ${UPSTREAM} | cut -d / -f 1`; \
     BRANCH=`echo ${UPSTREAM} | cut -d / -f 2-`; \
     git fetch $REMOTE $BRANCH; \
@@ -178,7 +178,7 @@ git config --global alias.prim '!f() { \
 }; f'
 git config --global alias.pro "pull --rebase origin"
 git config --global alias.pru '!f() { \
-    UPSTREAM=`git status -sb | cut -d \\. -f 4 | cut -d " " -f 1`; \
+    UPSTREAM=`git status -sb | cut -d \\. -f 4 | cut -d " " -f 1 | head -n 1`; \
     REMOTE=`echo ${UPSTREAM} | cut -d / -f 1`; \
     BRANCH=`echo ${UPSTREAM} | cut -d / -f 2-`; \
     git pull --rebase $REMOTE $BRANCH; \
