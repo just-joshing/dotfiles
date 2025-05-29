@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # ALIAS - Lists Git aliases
-git config --global alias.alias "!git config -l | grep alias | cut -c 7-"
-
+git config --global alias.alias "!git config --global --get-regexp '^alias\\.' | awk 'BEGIN{print \"\\033[31mGit Aliases\\033[0m\"}{space_pos=index(\$0,\" \");if(space_pos>0){alias_name=substr(\$0,1,space_pos-1);if(alias_name~\"^alias.\"){print \"\";alias_value=substr(\$0,space_pos+1);printf \"\\033[35m%s\\033[0m\\n\\n\",substr(alias_name,7);printf \"\\033[32m  %s\\033[0m\\n\",alias_value}else{printf \"\\033[32m  %s\\033[0m\\n\",\$0}}}'"
 
 # Config
 git config --global alias.gconfig "config --global"
