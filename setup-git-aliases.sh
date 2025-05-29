@@ -52,7 +52,7 @@ git config --global alias.bum '!f() { \
     DEFAULT_BRANCH=`git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@"`; \
     git branch -u origin/$DEFAULT_BRANCH; \
 }; f'
-git config --global alias.buu '!f() { \
+git config --global alias.bume '!f() { \
     CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`; \
     git branch -u origin/$CURRENT_BRANCH; \
 }; f'
@@ -77,6 +77,10 @@ git config --global alias.fu '!f() { \
     REMOTE=`echo ${UPSTREAM} | cut -d / -f 1`; \
     BRANCH=`echo ${UPSTREAM} | cut -d / -f 2-`; \
     git fetch $REMOTE $BRANCH; \
+}; f'
+git config --global alias.fme '!f() { \
+    CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`; \
+    git fetch origin $CURRENT_BRANCH; \
 }; f'
 git config --global alias.updatedefault "remote set-head origin -a"
 
