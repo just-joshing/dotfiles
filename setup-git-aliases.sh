@@ -3,8 +3,10 @@
 # ALIAS - Lists Git aliases
 git config --global alias.alias "!git config --global --get-regexp '^alias\\.' | awk 'BEGIN{print \"\\033[31mGit Aliases\\033[0m\"}{space_pos=index(\$0,\" \");if(space_pos>0){alias_name=substr(\$0,1,space_pos-1);if(alias_name~\"^alias.\"){print \"\";alias_value=substr(\$0,space_pos+1);printf \"\\033[35m%s\\033[0m\\n\\n\",substr(alias_name,7);printf \"\\033[32m  %s\\033[0m\\n\",alias_value}else{printf \"\\033[32m  %s\\033[0m\\n\",\$0}}}'"
 
+
 # Config
-git config --global alias.gconfig "config --global"
+git config --global alias.cfg "config"
+git config --global alias.gcfg "config --global"
 
 
 # Status
@@ -22,6 +24,10 @@ git config --global alias.swm '!f() { \
 git config --global alias.swcm '!f() { \
     DEFAULT_BRANCH=`git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@"`; \
     git switch -c $1 origin/$DEFAULT_BRANCH; \
+}; f'
+git config --global alias.swcu '!f() { \
+    UPSTREAM=`git status -sb | cut -d \\. -f 4 | cut -d ' ' -f 1 | head -n 1`; \
+    git switch -c $1 $UPSTREAM; \
 }; f'
 
 
@@ -170,6 +176,17 @@ git config --global alias.pmm '!f() { \
     git pull --no-rebase origin $DEFAULT_BRANCH; \
 }; f'
 git config --global alias.pmo "pull --no-rebase origin"
+git config --global alias.pmu '!f() { \
+    UPSTREAM=`git status -sb | cut -d \\. -f 4 | cut -d " " -f 1 | head -n 1`; \
+    REMOTE=`echo ${UPSTREAM} | cut -d / -f 1`; \
+    BRANCH=`echo ${UPSTREAM} | cut -d / -f 2-`; \
+    git pull --no-rebase $REMOTE $BRANCH; \
+}; f'
+git config --global alias.pmme '!f() { \
+    CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`; \
+    git pull --no-rebase origin $CURRENT_BRANCH; \
+}; f'
+
 git config --global alias.pr "pull --rebase"
 git config --global alias.prm '!f() { \
     DEFAULT_BRANCH=`git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@"`; \
@@ -185,6 +202,10 @@ git config --global alias.pru '!f() { \
     REMOTE=`echo ${UPSTREAM} | cut -d / -f 1`; \
     BRANCH=`echo ${UPSTREAM} | cut -d / -f 2-`; \
     git pull --rebase $REMOTE $BRANCH; \
+}; f'
+git config --global alias.prme '!f() { \
+    CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`; \
+    git pull --rebase origin $CURRENT_BRANCH; \
 }; f'
 
 
